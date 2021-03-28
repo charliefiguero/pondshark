@@ -37,13 +37,16 @@ def shark_fact():
     print(f"!!!SHARK FACT!!! : {shark_facts[random.randint(0,2)]}")
     print()
 
+# init
 parser = parser.Parser()
 player_cache = {}
 
+# get most recent game report
 most_recent_file_path = find_most_recent_file()
 lines = parser.get_lines(most_recent_file_path)
 games = parser.get_games(lines)
 
+# build/update player cache
 for game in games:
     new_players = parser.parse_game(game)
 
@@ -54,15 +57,10 @@ for game in games:
         else:
             player_cache[player_name] += player
 
+# print to screen
 last_game = games[-1]
 print_game_player_stats(last_game)
-
 print(most_recent_file_path)
-
-
-
-
-
 shark_fact()
 
 

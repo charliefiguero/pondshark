@@ -70,8 +70,14 @@ class Parser():
     def __parse_preflop(self, game, players):
         player_actions = {}
 
-        while game[0].startswith(tuple([ x + ':' for x in players.keys() ])):
+        while game[0].startswith(tuple([ x for x in players.keys() ])):
             cur_line = game[0]
+
+            # ignore disconnection messages
+            if 'disconnected' in cur_line:
+                game = game[1:]
+                continue
+
             this_player = cur_line[: cur_line.find(':')]
             cur_line = cur_line[cur_line.find(':')+2 : ]
 
@@ -126,8 +132,14 @@ class Parser():
     def __parse_postflop(self, game, players):
         player_actions = {}
 
-        while game[0].startswith(tuple([ x + ':' for x in players.keys() ])):
+        while game[0].startswith(tuple([ x for x in players.keys() ])):
             cur_line = game[0]
+
+            # ignore disconnection messages
+            if 'disconnected' in cur_line:
+                game = game[1:]
+                continue
+
             this_player = cur_line[: cur_line.find(':')]
             cur_line = cur_line[cur_line.find(':')+2 : ]
 
