@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/Users/charlesfiguero/opt/anaconda3/envs/myenv/bin/python
 
 """
 terminal app for poker stats
