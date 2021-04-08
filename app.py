@@ -36,7 +36,7 @@ def shark_fact():
     ]
 
     print()
-    print(f"!!!SHARK FACTtack!!! : {shark_facts[random.randint(0,2)]}")
+    print(f"!!!SHARK FACTack!!! : {shark_facts[random.randint(0,2)]}")
     print()
 
 # init
